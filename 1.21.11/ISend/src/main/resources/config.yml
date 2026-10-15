@@ -1,0 +1,129 @@
+# ISend configuration
+# Text supports MiniMessage (<green>, <click:...>) AND legacy codes (&a, &#rrggbb).
+# Placeholders: <player> <sender> <cost> <count> <max> <items> <stacks> <page> <pages> <time>
+
+settings:
+  # Flat fee charged for every send.
+  delivery-fee: 500.0
+  # Extra fee multiplied by the TOTAL item amount being sent (e.g. 3 stacks of 64 = 192 items).
+  charge-per-item: 0.0
+  # Max number of item STACKS (occupied slots) in a single send session.
+  max-items-per-mail: 18
+  allow-sending-to-self: false
+  # true  = items that do not fit in the claimer's inventory are dropped at their feet.
+  # false = items that do not fit stay in the mailbox.
+  drop-on-full: true
+  # Tell players on join if they have pending mail.
+  notify-on-join: true
+  date-format: "dd/MM/yyyy HH:mm"
+
+gui:
+  send:
+    title: "<dark_green>Gửi đồ đến: <player>"
+    # Multiple of 9 (18-54). The bottom row is always the control bar.
+    size: 27
+    submit-button:
+      material-empty: RED_STAINED_GLASS_PANE
+      material-ready: LIME_STAINED_GLASS_PANE
+      name-empty: "<red>Chưa có vật phẩm để gửi"
+      name-ready: "<green>Nhấn để gửi đồ"
+      lore-empty: []
+      lore-ready:
+        - "<gray>Phí chuyển phát: <yellow><cost>"
+      # Slot numbers are mapped onto the bottom row by column.
+      slot: 26
+    cancel-button:
+      material: BARRIER
+      name: "<red>Hủy bỏ"
+      lore:
+        - "<gray>Đóng và nhận lại vật phẩm"
+      slot: 18
+    status-indicator:
+      material: PAPER
+      name: "<yellow>Người nhận: <white><player>"
+      lore:
+        - "<gray>Số ô vật phẩm: <white><stacks>"
+        - "<gray>Tổng số lượng: <white><items>"
+        - "<gray>Phí chuyển phát: <yellow><cost>"
+      slot: 22
+    filler:
+      material: GRAY_STAINED_GLASS_PANE
+      name: " "
+  inbox:
+    title: "<blue>Hòm thư của bạn"
+    title-from: "<blue>Đồ gửi từ <sender>"
+    title-see: "<red>Hòm thư của <player>"
+    size: 54
+    claim-all-button:
+      material: EMERALD
+      name: "<green>Nhận tất cả"
+      lore: []
+      slot: 53
+    previous-button:
+      material: ARROW
+      name: "<yellow>Trang trước"
+      lore:
+        - "<gray>Trang <page>/<pages>"
+      slot: 48
+    next-button:
+      material: ARROW
+      name: "<yellow>Trang sau"
+      lore:
+        - "<gray>Trang <page>/<pages>"
+      slot: 50
+    filler:
+      material: GRAY_STAINED_GLASS_PANE
+      name: " "
+    # Lines appended to the lore of every mail item.
+    item-lore:
+      - ""
+      - "<gray>Từ: <white><sender>"
+      - "<gray>Lúc: <white><time>"
+      - "<yellow>Nhấn để nhận"
+
+messages:
+  prefix: "&7[isend] &r"
+  not-enough-money: "&cBạn không có đủ tiền để trả phí chuyển phát! Cần: &e<cost>"
+  mail-sent-success: "&aĐã gửi đồ thành công cho &e<player> &avới phí &e<cost>&a!"
+  receiver-toggled-off: "&cNgười chơi &e<player> &cđang tắt tính năng nhận đồ!"
+  you-are-blocked: "&cBạn đã bị người chơi này chặn gửi đồ!"
+  receiver-blocked-you: "&cBạn không thể gửi đồ cho người chơi này."
+  inventory-empty-send: "&cBạn chưa đặt vật phẩm nào vào rương gửi!"
+  toggle-on: "&aĐã bật chế độ nhận đồ. Người khác có thể gửi đồ cho bạn."
+  toggle-off: "&cĐã tắt chế độ nhận đồ. Không ai có thể gửi đồ cho bạn nữa."
+  exception-added: "&aĐã thêm &e<player> &avào danh sách ngoại lệ được phép gửi đồ."
+  exception-removed: "&eĐã xóa &6<player> &ekhỏi danh sách ngoại lệ."
+  block-added: "&cĐã chặn &e<player> &cgửi đồ cho bạn."
+  block-removed: "&aĐã bỏ chặn &e<player>&a."
+  mail-notification: "<gray>[isend] <gold><sender> <yellow>vừa gửi đồ cho bạn!\n<click:run_command:'/isend gui'><green>[Mở hòm thư]</click>"
+  join-notification: "<gray>[isend] <yellow>Bạn có <gold><count> <yellow>vật phẩm đang chờ trong hòm thư! <click:run_command:'/isend gui'><green>[Mở hòm thư]</click>"
+  inbox-empty: "&cHòm thư của bạn đang trống!"
+  inbox-empty-other: "&cHòm thư của &e<player> &cđang trống!"
+  claim-success: "&aĐã nhận vật phẩm thành công!"
+  claim-all-success: "&aĐã nhận toàn bộ vật phẩm trong hòm thư!"
+  reload-success: "&aĐã reload lại cấu hình plugin thành công!"
+  no-permission: "&cBạn không có quyền thực hiện lệnh này!"
+  # --- extra messages ---
+  player-only: "&cLệnh này chỉ dành cho người chơi!"
+  player-not-found: "&cKhông tìm thấy người chơi &e<player>&c!"
+  cannot-send-self: "&cBạn không thể gửi đồ cho chính mình!"
+  cannot-target-self: "&cBạn không thể chọn chính mình!"
+  too-many-items: "&cMỗi lần gửi tối đa &e<max> &cô vật phẩm!"
+  economy-unavailable: "&cHệ thống kinh tế chưa sẵn sàng nên không thể thu phí chuyển phát!"
+  inventory-full: "&eTúi đồ của bạn đã đầy! Một số vật phẩm vẫn còn trong hòm thư."
+  error-generic: "&cĐã xảy ra lỗi khi lưu dữ liệu. Giao dịch đã bị hủy."
+  config-header: "&6&lISend &7- cấu hình hiện tại"
+  config-line: "&7<key>: &e<value>"
+  help: |-
+    &6&lISend &7- Danh sách lệnh
+    &e/isend &7- Bật/tắt nhận đồ
+    &e/isend to <player> &7- Gửi đồ cho người chơi
+    &e/isend gui &7- Mở hòm thư
+    &e/isend from <player> &7- Xem đồ của một người gửi
+    &e/isend block <player> &7- Chặn/bỏ chặn người gửi
+    &e/isend exception <player> &7- Thêm/xóa ngoại lệ
+  help-admin: |-
+    &c&lAdmin &7- Danh sách lệnh
+    &e/isend reload &7- Reload cấu hình
+    &e/isend see <player> &7- Xem/lấy đồ trong hòm thư người khác
+    &e/isend config &7- Xem cấu hình hiện tại
