@@ -1,0 +1,35 @@
+name: PetShield
+version: '${version}'
+main: com.petshield.PetShieldPlugin
+api-version: '1.21'
+description: Lưu, bảo vệ và hồi sinh thú cưng
+authors: [PetShield]
+
+commands:
+  mypet:
+    description: Đăng ký thú cưng (gõ lệnh rồi chuột phải vào pet)
+    usage: /mypet [list|del|revive|cancel]
+  pet:
+    description: Quản lý thú cưng đã lưu
+    usage: /pet <list|del|revive>
+  mypetreload:
+    description: Tải lại cấu hình và dữ liệu PetShield
+    aliases: [petreload]
+    usage: /mypetreload
+
+permissions:
+  petshield.use:
+    description: Dùng /mypet và /pet
+    default: true
+  petshield.admin:
+    description: Dùng /mypetreload
+    default: op
+  petshield.limit.admin:
+    description: Giới hạn số pet của nhóm admin (xem limits.permissions trong config)
+    default: op
+  petshield.bypass.cooldown:
+    description: Bỏ qua cooldown hồi sinh
+    default: op
+  petshield.bypass.cost:
+    description: Hồi sinh miễn phí
+    default: op

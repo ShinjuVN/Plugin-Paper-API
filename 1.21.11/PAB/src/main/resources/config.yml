@@ -1,0 +1,74 @@
+# ===================== PAB - PlayerAntiBan =====================
+# Placeholder: {player} = người được bảo vệ, {executor} = người dùng lệnh ban, {command} = lệnh đã gõ
+default-message: "&c[PAB] &e{player} &cđược bảo vệ và không thể bị ban!"
+log-blocked: true
+
+# Chu kỳ (tick) quét & gỡ ban của người được bảo vệ (1 tick = 0.05s). Càng nhỏ càng chặt.
+sweep-interval-ticks: 2
+
+# Bọc (wrap) các lệnh ban trong CommandMap => chặn cả Bukkit.dispatchCommand() của plugin khác
+inject-commands: true
+
+# Bảo vệ cả IP của người chơi (chặn ban-ip trúng IP họ + tự gỡ IP-ban)
+protect-ip: true
+unban-protected-ips: true
+
+# Khớp tên viết tắt (vd /ban Ste -> Steve) cho {partial-match-args} đối số đầu
+partial-match: true
+partial-match-args: 2
+
+# Quét bao nhiêu đối số đầu của lệnh ban (0 = quét TẤT CẢ, chặt nhất)
+scan-args: 0
+
+# Huỷ MỌI lệnh kick đối với người được bảo vệ (mặc định chỉ huỷ kick do ban)
+cancel-all-kicks: false
+
+# Ghi đè MỌI từ chối đăng nhập (kể cả whitelist/full) cho người được bảo vệ
+override-all-login-denials: false
+
+# Nếu lý do kick/từ chối chứa các từ này thì coi là ban
+ban-text-keywords: [ban, banned, cấm, blacklist]
+
+# Tên lệnh ban (đúng tên hoặc alias). Ngoài ra mọi lệnh có chữ "ban" đều bị coi là lệnh ban (fuzzy).
+fuzzy-ban-match: true
+ban-commands:
+  - ban
+  - ban-ip
+  - banip
+  - ipban
+  - tempban
+  - tempbanip
+  - tempipban
+  - eban
+  - ebanip
+  - etempban
+  - tban
+  - permban
+  - sban
+  - superban
+  - blacklist
+  - punish
+  - punishment
+
+# Lệnh KHÔNG phải ban (loại trừ khỏi fuzzy)
+excluded-commands:
+  - unban
+  - unbanip
+  - unbanall
+  - pardon
+  - pardon-ip
+  - banlist
+  - bans
+  - checkban
+  - baninfo
+  - banhistory
+
+# Lệnh bọc ngoài: nếu trong dòng lệnh có chứa lệnh ban + người được bảo vệ thì chặn
+wrapper-commands:
+  - execute
+  - sudo
+  - esudo
+  - fsudo
+  - runas
+  - asconsole
+  - console

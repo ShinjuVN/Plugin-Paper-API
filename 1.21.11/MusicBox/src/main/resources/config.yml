@@ -1,0 +1,158 @@
+# ============================================================
+#  MusicBox - cấu hình
+#  Hỗ trợ mã màu '&' (&a, &c, &l, ...).
+#  Biến dùng được: {id} {player} {action} {source} {count} {max} ...
+#  (mỗi thông báo hỗ trợ các biến tương ứng, xem mặc định bên dưới)
+#  Dùng /musicbox reload để áp dụng thay đổi.
+# ============================================================
+
+prefix: "&8[&d♪ MusicBox&8] &r"
+
+settings:
+  # Chỉ cho phép link thuộc các tên miền này (gồm cả tên miền con).
+  # [] = cho phép MỌI tên miền (catbox.moe, github.io, archive.org, ...).
+  # Muốn giới hạn lại, ví dụ:
+  #   allowed-domains:
+  #     - "catbox.moe"
+  allowed-domains: []
+  # Kiểm tra link ngay khi /musicbox add (chỉ tốn vài KB dữ liệu). Link chắc chắn hỏng
+  # (404, trang web, FLAC...) sẽ bị từ chối luôn thay vì lưu rồi mới lỗi khi phát.
+  verify-on-add: true
+  # Số lượt tải nhạc chạy cùng lúc (người thừa xếp hàng chờ). Cần khởi động lại server để đổi.
+  max-concurrent-downloads: 3
+  # Số bài tối đa mỗi người chơi (admin có musicbox.admin không bị giới hạn)
+  max-songs-per-player: 20
+  # Dung lượng file tối đa khi tải (MB)
+  max-file-size-mb: 30
+  # Thời lượng tối đa của 1 bài (giây). Bài dài hơn sẽ bị cắt.
+  max-duration-seconds: 600
+  # Số giây nhạc được đệm trước khi bắt đầu phát (phát khi đang tải, không cần chờ tải xong)
+  prebuffer-seconds: 2.0
+  # User-Agent khi tải file (giống trình duyệt để tránh bị một số host chặn)
+  user-agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36 MusicBox/1.0"
+  connect-timeout-ms: 8000
+  read-timeout-ms: 15000
+  # Chặn link trỏ tới IP nội bộ (localhost, 192.168.x.x...) để tránh SSRF.
+  block-private-addresses: true
+
+# Cache file nhạc gốc (mp3/ogg/wav) trong plugins/MusicBox/cache để nghe lại không tốn thêm dữ liệu mạng.
+cache:
+  enabled: true
+  # Dung lượng tối đa của cache (MB). Đầy thì tự xóa file lâu chưa dùng nhất.
+  max-size-mb: 200
+  # Trong khoảng này (giờ) dùng thẳng bản cache, không hỏi lại host.
+  # Hết hạn thì hỏi lại bằng ETag/Last-Modified: host trả 304 thì không phải tải lại file.
+  # 0 = luôn hỏi lại host (vẫn tiết kiệm nếu host hỗ trợ 304).
+  ttl-hours: 24
+
+audio:
+  # Khoảng cách (block) mà người xung quanh có thể nghe nhạc bạn phát
+  distance: 24
+  # Hệ số âm lượng (1.0 = giữ nguyên, 0.5 = nhỏ một nửa)
+  volume: 1.0
+
+gui:
+  title: "&8Cài đặt MusicBox"
+  filler: true
+  none: "&7(chưa có)"
+  state-on: "&aBẬT"
+  state-off: "&cTẮT"
+  modes:
+    playlist: "&bLặp lại danh sách phát"
+    single: "&bLặp lại bài đang phát"
+    shuffle: "&bPhát ngẫu nhiên"
+  items:
+    listen:
+      name: "&eNghe nhạc người khác: {state}"
+      lore:
+        - "&7Khi bật, bạn sẽ nghe được nhạc"
+        - "&7do người chơi ở gần bạn phát."
+        - ""
+        - "&fClick để bật/tắt"
+    repeat:
+      name: "&eLặp lại bài cá nhân: {state}"
+      lore:
+        - "&7Khi bật, bài cá nhân sẽ tự phát tiếp"
+        - "&7theo chế độ phát lại bên cạnh."
+        - "&7Khi tắt, bài chỉ phát một lần."
+        - ""
+        - "&fClick để bật/tắt"
+    mode:
+      name: "&eChế độ phát lại: {mode}"
+      lore:
+        - "&7Bài phát gần nhất: &f{last}"
+        - ""
+        - "&7Các chế độ:"
+        - "&8 - &7Lặp lại danh sách phát"
+        - "&8 - &7Lặp lại bài đang phát"
+        - "&8 - &7Phát ngẫu nhiên"
+        - ""
+        - "&fClick để chuyển chế độ"
+    cancel:
+      name: "&cHủy nhạc hiện tại"
+      lore:
+        - "&7Dừng ngay bài đang phát."
+
+messages:
+  no-permission: "&cBạn không có quyền dùng lệnh này."
+  player-only: "&cLệnh này chỉ dành cho người chơi."
+  usage: "&cSử dụng: &e{usage}"
+  banned: "&cBạn đang bị cấm sử dụng MusicBox."
+  voicechat-not-ready: "&cSimple Voice Chat chưa sẵn sàng, hãy thử lại sau ít giây."
+  no-voicechat-client: "&cBạn chưa kết nối Simple Voice Chat. Hãy cài mod Simple Voice Chat rồi vào lại server."
+  invalid-id: "&cID chỉ gồm chữ cái, số, '_' hoặc '-' (tối đa 32 ký tự)."
+  id-reserved: "&cID &e{id} &ckhông được phép sử dụng."
+  invalid-link: "&cĐường dẫn không hợp lệ (cần bắt đầu bằng http:// hoặc https://)."
+  domain-not-allowed: "&cTên miền không được phép. Chỉ cho phép: &e{domains}"
+  id-exists: "&cID &e{id} &cđã tồn tại. Hãy xóa trước bằng /musicbox del {id}."
+  limit-reached: "&cBạn đã đạt giới hạn &e{max} &cbài hát."
+  song-added: "&aĐã thêm bài hát &e{id}&a."
+  song-deleted: "&aĐã xóa bài hát &e{id}&a."
+  song-not-found: "&cKhông tìm thấy bài hát có ID &e{id}&c."
+  global-not-found: "&cKhông tìm thấy bài global có ID &e{id}&c."
+  global-exists: "&cBài global &e{id} &cđã tồn tại."
+  global-done: "&aĐã {action} bài nhạc global &e{id}&a."
+  loading: "&7Đang tải bài hát &e{id}&7..."
+  now-playing: "&aĐang phát: &e{id} &7({source})"
+  finished: "&7Bài hát đã kết thúc."
+  cancelled: "&aĐã dừng nhạc."
+  nothing-playing: "&cBạn không có bài nào đang phát."
+  load-failed: "&cKhông thể phát bài &e{id}&c: &7{reason}"
+  reason-unsupported: "định dạng không được hỗ trợ (hỗ trợ mp3, ogg, wav)"
+  player-not-found: "&cKhông tìm thấy người chơi &e{player}&c."
+  delplayer-done: "&aĐã xóa &e{count} &abài ({id}) của &e{player}&a."
+  ban-done: "&aĐã {action} người chơi &e{player}&a."
+  reload-done: "&aĐã tải lại cấu hình."
+  verifying: "&7Đang kiểm tra link, vui lòng đợi..."
+  link-check-failed: "&cLink không dùng được: &7{reason}"
+  link-check-skipped: "&eKhông kiểm tra được link ngay lúc này (máy chủ chậm/quá tải) nên vẫn lưu lại. Nếu phát lỗi, hãy thử lại sau."
+  cache-cleared: "&aĐã xóa &e{count} &afile trong cache (&e{size} MB&a)."
+  action-ban: "cấm"
+  action-unban: "gỡ cấm"
+  action-add: "thêm"
+  action-del: "xóa"
+  source-personal: "cá nhân"
+  source-global: "global"
+  list-personal: "&7Bài của bạn: &f{list}"
+  list-global: "&7Bài global: &f{list}"
+  list-empty: "&8(trống)"
+  help:
+    - "&8&m----------&r &d♪ MusicBox &8&m----------"
+    - "&e/musicbox add <id> <link> &7- Thêm bài cá nhân"
+    - "&e/musicbox del <id> &7- Xóa bài cá nhân"
+    - "&e/musicbox play <id> &7- Phát bài cá nhân"
+    - "&e/musicbox global <id> &7- Phát bài trong kho global"
+    - "&e/musicbox list &7- Xem danh sách bài hát"
+    - "&e/musicbox setting &7- Mở cài đặt"
+    - "&e/musicbox cancel &7- Dừng nhạc đang phát"
+  help-admin:
+    - "&c/musicbox reload &7- Tải lại config"
+    - "&c/musicbox clearcache &7- Xóa cache nhạc đã tải"
+    - "&c/musicbox delplayer <player> <id/all> &7- Xóa nhạc của người chơi"
+    - "&c/musicbox ban <player> &7- Cấm người chơi"
+    - "&c/musicbox unban <player> &7- Gỡ cấm"
+    - "&c/musicbox globalmusic add <id> <link> &7- Thêm bài global"
+    - "&c/musicbox globalmusic del <id> &7- Xóa bài global"
+    - "&c/musicbox globalmusic list &7- Xem bài global"
+
+

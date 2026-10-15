@@ -1,0 +1,22 @@
+name: MusicBox
+version: '${version}'
+main: dev.musicbox.MusicBoxPlugin
+api-version: '1.21'
+description: Kho nhạc cá nhân, phát nhạc từ link trực tiếp qua Simple Voice Chat
+depend: [voicechat]
+
+commands:
+  musicbox:
+    description: Lệnh chính của MusicBox
+    usage: /musicbox
+    aliases: [mbox]
+
+permissions:
+  musicbox.use:
+    description: Dùng các lệnh MusicBox cơ bản
+    default: true
+  musicbox.admin:
+    description: Dùng các lệnh quản trị MusicBox
+    default: op
+
+

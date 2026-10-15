@@ -1,0 +1,31 @@
+name: OWRTP
+version: '${version}'
+main: com.owrtp.OwRtpPlugin
+api-version: '1.21'
+description: Random Teleport tối giản, không GUI, tối ưu hiệu năng
+authors: [OWRTP]
+
+commands:
+  rtp:
+    description: Dịch chuyển ngẫu nhiên
+    usage: /rtp
+  rtpreload:
+    description: Tải lại cấu hình OWRTP
+    usage: /rtpreload
+  rtpconfig:
+    description: Quản lý cấu hình OWRTP trong game
+    usage: /rtpconfig <radius|cooldown|cancel-on-damage|cancel-on-move>
+
+permissions:
+  rtp.default:
+    description: Cho phép dùng /rtp
+    default: true
+  rtp.admin:
+    description: Dùng /rtpreload và /rtpconfig
+    default: op
+  rtp.bypass.cooldown:
+    description: Bỏ qua thời gian hồi chiêu
+    default: op
+  rtp.bypass.countdown:
+    description: Bỏ qua thời gian đếm ngược
+    default: op

@@ -1,0 +1,18 @@
+name: PAB
+main: vn.pab.PAB
+version: ${version}
+api-version: '1.21'
+load: STARTUP
+description: PlayerAntiBan - bảo vệ người chơi khỏi mọi lệnh/plugin ban
+authors: [PAB]
+# Nạp trước các plugin ban phổ biến để listener của PAB được gọi trước
+loadbefore: [Essentials, EssentialsX, CMI, LiteBans, AdvancedBan, BanManager, MaxBans, LibertyBans, SimpleBan, UltraBans, Punishments, LiteBansBungee, AdvancedBanX, EssentialsXSpawn]
+commands:
+  pab:
+    description: Quản lý danh sách người chơi chống ban
+    usage: /pab <reload|add|remove|list>
+    permission: pab.admin
+permissions:
+  pab.admin:
+    description: Dùng lệnh /pab
+    default: op

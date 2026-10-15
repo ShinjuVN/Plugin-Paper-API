@@ -1,0 +1,96 @@
+# ============================================================
+#  OWRTP - Random Teleport
+#  Màu sắc: MiniMessage (<red>, <#ff8800>, <gradient:...>) hoặc legacy (&a, &l, &#ff8800)
+#  Placeholder dùng được trong từng thông báo được ghi ở cuối dòng.
+# ============================================================
+
+settings:
+  # Thế giới được phép dùng /rtp (để trống [] = tất cả thế giới)
+  enabled-worlds: []
+
+  # Bán kính tính từ tâm (0, 0) của thế giới
+  min-radius: 500
+  max-radius: 5000
+
+  # true : đích đến phải có block rắn để đứng, 2 block phía trên trống, không có
+  #        chất lỏng và không có block nguy hiểm (xem unsafe-blocks) quanh chân.
+  # false: đích đến vẫn LUÔN có block rắn để đứng + đủ chỗ đứng (không kẹt block),
+  #        nhưng cho phép block nguy hiểm.
+  safe-location: true
+
+  # Số lần thử tối đa khi tìm vị trí (mỗi lần thử load 1 chunk bất đồng bộ)
+  max-attempts: 30
+
+  # Thời gian đếm ngược (giây) trước khi dịch chuyển. 0 = dịch chuyển ngay.
+  countdown: 5
+
+  # Hủy RTP khi người chơi di chuyển sang block khác trong lúc đếm ngược
+  cancel-on-move: true
+
+  # Hủy RTP khi nhận sát thương thực chất (> 0)
+  cancel-on-damage: true
+
+  # Ngoài quyền rtp.cooldown.<rank>, cũng nhận group.<rank> (LuckPerms / Vault permission)
+  use-group-permission: true
+
+  # Block bị coi là nguy hiểm khi safe-location: true
+  unsafe-blocks:
+    - LAVA
+    - MAGMA_BLOCK
+    - CACTUS
+    - CAMPFIRE
+    - SOUL_CAMPFIRE
+    - FIRE
+    - SOUL_FIRE
+    - SWEET_BERRY_BUSH
+    - POWDER_SNOW
+    - WITHER_ROSE
+    - COBWEB
+    - POINTED_DRIPSTONE
+    - TNT
+    - NETHER_PORTAL
+    - END_PORTAL
+    - BUBBLE_COLUMN
+
+# Hồi chiêu (giây) theo rank. Quyền tương ứng: rtp.cooldown.<rank>
+# Người chơi có nhiều rank sẽ dùng thời gian thấp nhất. Không có rank nào -> dùng "default".
+cooldowns:
+  default: 300
+  vip: 120
+  mvp: 60
+
+messages:
+  prefix: "<dark_gray>[<green>RTP</green>]</dark_gray> "
+
+  # --- Actionbar ---
+  countdown: "<yellow>Dịch chuyển sau <gold>{time}s</gold>"            # {time}
+  searching: "<aqua>Đang tìm vị trí..."
+
+  # --- Chat ---
+  success: "{prefix}<green>Đã dịch chuyển tới <white>{x}, {y}, {z}</white> <gray>({world})"  # {x} {y} {z} {world}
+  cancelled-move: "{prefix}<red>RTP đã bị hủy vì bạn di chuyển."
+  cancelled-damage: "{prefix}<red>RTP đã bị hủy vì bạn nhận sát thương."
+  cooldown: "{prefix}<red>Bạn phải chờ <yellow>{time}</yellow> nữa mới dùng lại được /rtp."  # {time}
+  already-active: "{prefix}<red>Bạn đang trong quá trình RTP rồi."
+  no-permission: "{prefix}<red>Bạn không có quyền làm điều này."
+  world-disabled: "{prefix}<red>Không thể dùng /rtp ở thế giới này."
+  location-not-found: "{prefix}<red>Không tìm được vị trí phù hợp, hãy thử lại."
+  teleport-failed: "{prefix}<red>Dịch chuyển thất bại, hãy thử lại."
+  players-only: "{prefix}<red>Lệnh này chỉ dành cho người chơi."
+
+  # --- Lệnh quản trị ---
+  reload-success: "{prefix}<green>Đã tải lại cấu hình và dữ liệu."
+  radius-updated: "{prefix}<green>Đã đặt bán kính <yellow>{type}</yellow> = <white>{value}</white>."  # {type} {value}
+  radius-invalid: "{prefix}<red>Giá trị không hợp lệ: cần 0 <= min < max (hiện tại min={min}, max={max})."  # {min} {max}
+  invalid-number: "{prefix}<red>'{input}' không phải số nguyên hợp lệ."  # {input}
+  invalid-boolean: "{prefix}<red>Giá trị phải là true hoặc false."
+  bool-updated: "{prefix}<green>Đã đặt <yellow>{option}</yellow> = <white>{value}</white>."  # {option} {value}
+  invalid-rank: "{prefix}<red>Tên rank chỉ gồm chữ thường, số, '_' hoặc '-'."
+  cooldown-updated: "{prefix}<green>Hồi chiêu rank <yellow>{rank}</yellow> = <white>{time}</white> <gray>(quyền: rtp.cooldown.{rank})"  # {rank} {time}
+  cooldown-reset: "{prefix}<green>Đã đặt lại hồi chiêu của rank <yellow>{rank}</yellow>."  # {rank}
+  usage-config:
+    - "{prefix}<yellow>/rtpconfig radius <min|max> <giá trị>"
+    - "{prefix}<yellow>/rtpconfig cooldown add <rank> <giây>"
+    - "{prefix}<yellow>/rtpconfig cooldown reset <rank>"
+    - "{prefix}<yellow>/rtpconfig cancel-on-damage <true|false>"
+    - "{prefix}<yellow>/rtpconfig cancel-on-move <true|false>"

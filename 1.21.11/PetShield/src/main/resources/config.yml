@@ -1,0 +1,118 @@
+# ============================================================
+#  PetShield - Lưu, bảo vệ và hồi sinh thú cưng
+#  Màu sắc: MiniMessage (<red>, <#ff8800>, <gradient:...>) hoặc legacy (&a, &l, &#ff8800)
+# ============================================================
+
+settings:
+  # Thời gian (giây) chờ chuột phải vào pet sau khi gõ /mypet
+  register-timeout: 30
+
+  # Với sinh vật có chủ (sói, mèo...): bắt buộc đã được thuần hóa bởi chính người đăng ký
+  require-tamed: true
+
+  # Loại mob được phép lưu (tên EntityType). Thêm mob tùy chỉnh/khác tại đây.
+  # Lưu ý: Minecraft không có Tê tê (Pangolin); mob gần nhất là ARMADILLO (Tatu).
+  allowed-mobs:
+    - WOLF
+    - CAT
+    - AXOLOTL
+    - ARMADILLO
+
+  # Chu kỳ (giây) tự chụp lại dữ liệu NBT của pet đang sống. 0 = tắt.
+  # (Ngoài ra plugin luôn chụp ngay trước khi pet nhận sát thương chí mạng,
+  #  khi chunk unload, sau khi người chơi tương tác với pet và khi tắt server.)
+  snapshot-interval: 120
+
+  # Hồi sinh với đầy máu (các dữ liệu khác như tên, giáp, thuộc tính... luôn giữ nguyên)
+  revive-full-health: true
+
+# Giới hạn số pet mỗi người chơi
+limits:
+  default: 5
+  # permission: petshield.limit.<tên>  ->  số pet tối đa (lấy giá trị cao nhất người chơi có)
+  permissions:
+    admin: 10
+
+revive:
+  # Khoảng cách tối thiểu giữa 2 lần hồi sinh của MỖI pet.
+  # Ví dụ: 600, 10m, 1h30m, 45s (không có đơn vị = giây)
+  cooldown: 10m
+
+  cost:
+    enabled: true
+    # "5"  = trừ 5 điểm EXP lẻ  |  "1l" = trừ 1 cấp độ (level)
+    # Tính cho từng pet được hồi sinh.
+    amount: "1l"
+
+# Tên hiển thị của từng loại mob (không khai báo sẽ dùng tên viết hoa chữ đầu)
+mob-names:
+  WOLF: "Sói"
+  CAT: "Mèo"
+  AXOLOTL: "Axolotl"
+  ARMADILLO: "Tê tê"
+
+messages:
+  prefix: "<dark_gray>[<gold>PetShield</gold>]</dark_gray> "
+
+  no-permission: "{prefix}<red>Bạn không có quyền làm điều này."
+  players-only: "{prefix}<red>Lệnh này chỉ dành cho người chơi."
+  help:
+    - "{prefix}<gold><bold>Lệnh PetShield"
+    - "{prefix}<yellow>/mypet <gray>- Đăng ký pet (rồi chuột phải vào pet)"
+    - "{prefix}<yellow>/mypet cancel <gray>- Hủy chế độ đăng ký"
+    - "{prefix}<yellow>/pet list <gray>- Xem danh sách pet"
+    - "{prefix}<yellow>/pet del <tên hoặc id> <gray>- Xóa pet khỏi danh sách"
+    - "{prefix}<yellow>/pet revive [tên hoặc id] <gray>- Hồi sinh pet đã chết"
+    - "{prefix}<yellow>/pet help <gray>- Xem hướng dẫn này"
+    - " "
+    - "{prefix}<gold><bold>Cách lưu pet"
+    - "{prefix}<gray>1. Thuần hóa pet trước (sói, mèo...)."
+    - "{prefix}<gray>2. Gõ <yellow>/mypet</yellow>, rồi <white>chuột phải</white> vào pet trong vài giây."
+    - "{prefix}<gray>3. Pet đã lưu sẽ không rơi đồ khi chết. Dùng <yellow>/pet list</yellow> để kiểm tra."
+    - " "
+    - "{prefix}<gold><bold>Cứu / hồi sinh pet"
+    - "{prefix}<gray>1. Khi pet chết, bạn sẽ nhận thông báo kèm tọa độ chết."
+    - "{prefix}<gray>2. Gõ <yellow>/pet revive</yellow> (hoặc <yellow>/pet revive <tên/id></yellow>) để hồi sinh ngay cạnh bạn."
+    - "{prefix}<gray>3. Pet quay lại nguyên vẹn: giữ tên, giáp, chỉ số. Mỗi lần hồi sinh tốn kinh nghiệm và có thời gian chờ,"
+    - "{prefix}<gray>   xem trong <yellow>/pet list</yellow> cột 'Hồi sinh'."
+
+  # --- Đăng ký ---
+  register-start: "{prefix}<green>Hãy <white>chuột phải</white> vào thú cưng của bạn trong <yellow>{timeout}s</yellow>. <gray>(/mypet cancel để hủy)"  # {timeout}
+  register-cancelled: "{prefix}<yellow>Đã hủy chế độ đăng ký."
+  register-expired: "{prefix}<red>Hết thời gian đăng ký pet."
+  register-success: "{prefix}<green>Đã lưu pet <white>{name}</white> <gray>({type})</gray> <dark_gray>[{count}/{limit}]"  # {name} {type} {count} {limit}
+  register-failed: "{prefix}<red>Không thể lưu dữ liệu sinh vật này."
+  limit-reached: "{prefix}<red>Bạn đã đạt giới hạn <yellow>{limit}</yellow> pet. Hãy dùng /pet del để xóa bớt."  # {limit}
+  invalid-mob: "{prefix}<red>Loại sinh vật này không được phép lưu."
+  not-tamed: "{prefix}<red>Sinh vật này chưa được thuần hóa."
+  not-owner: "{prefix}<red>Đây không phải thú cưng của bạn."
+  already-registered-self: "{prefix}<red>Bạn đã lưu pet này rồi."
+  already-registered-other: "{prefix}<red>Pet này đã được người khác lưu."
+
+  # --- Danh sách ---
+  list-header: "{prefix}<gold>Danh sách pet của bạn <gray>({count}/{limit})"  # {count} {limit}
+  list-empty: "{prefix}<gray>Bạn chưa lưu pet nào. Dùng /mypet để đăng ký."
+  # {id} {name} {type} {cooldown}   (+ {world} {x} {y} {z} cho pet đã chết)
+  list-entry-alive: "<gray>#{id} <white>{name} <dark_gray>(<gray>{type}</gray>) <green>● Đang sống <dark_gray>| <gray>Hồi sinh: <white>{cooldown}"
+  list-entry-dead: "<gray>#{id} <white>{name} <dark_gray>(<gray>{type}</gray>) <red>● Đã chết <dark_gray>| <gray>Tại: <white>{world} {x}, {y}, {z} <dark_gray>| <gray>Hồi sinh: <white>{cooldown}"
+  cooldown-ready: "Sẵn sàng"
+
+  # --- Xóa ---
+  del-usage: "{prefix}<yellow>Dùng: /pet del <tên hoặc id>"
+  pet-not-found: "{prefix}<red>Không tìm thấy pet '{input}'."  # {input}
+  pet-deleted: "{prefix}<green>Đã xóa pet <white>{name}</white> khỏi danh sách."  # {name}
+
+  # --- Hồi sinh ---
+  pet-died: "{prefix}<red>Pet <white>{name}</white> đã chết tại <white>{world} {x}, {y}, {z}</white>. Dùng /pet revive để hồi sinh."  # {name} {world} {x} {y} {z}
+  revive-no-dead: "{prefix}<gray>Bạn không có pet nào đã chết."
+  revive-alive: "{prefix}<red>Pet <white>{name}</white> vẫn đang sống."  # {name}
+  revive-cooldown: "{prefix}<red>Pet <white>{name}</white> cần chờ <yellow>{time}</yellow> nữa mới hồi sinh được."  # {name} {time}
+  revive-no-funds: "{prefix}<red>Không đủ kinh nghiệm để hồi sinh <white>{name}</white> (cần <yellow>{cost}</yellow>)."  # {name} {cost}
+  revive-success: "{prefix}<green>Đã hồi sinh pet <white>{name}</white> <gray>(chi phí: {cost})"  # {name} {cost}
+  revive-failed: "{prefix}<red>Hồi sinh <white>{name}</white> thất bại, hãy thử lại."  # {name}
+  cost-free: "miễn phí"
+  cost-points: "{amount} EXP"
+  cost-levels: "{amount} level"
+
+  # --- Quản trị ---
+  reload-success: "{prefix}<green>Đã tải lại cấu hình và dữ liệu."
