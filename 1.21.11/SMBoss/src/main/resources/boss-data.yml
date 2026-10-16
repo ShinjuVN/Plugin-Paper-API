@@ -1,0 +1,266 @@
+# SMBoss - du lieu boss
+# nbt: base64 cua NBT mob | name: ten hien thi (ma mau &) | exp: exp roi ra (-1 = mac dinh)
+# spawn-message: cac dong thong bao toan server ({boss} {player} {world} {x} {y} {z})
+# drops: item (ten Material), amount (so hoac min-max), chance (% 0-100), name, lore, enchants
+#        Sach enchant: item ENCHANTED_BOOK + enchants. Trang bi tren nguoi boss roi theo drop_chances trong NBT.
+bosses:
+  wither_knight:
+    nbt: e2lkOiJtaW5lY3JhZnQ6d2l0aGVyX3NrZWxldG9uIixDdXN0b21OYW1lOnt0ZXh0OiJIaeG7h3AgU8SpIEjDqW8gVMOgbiIsY29sb3I6ImRhcmtfcmVkIixib2xkOjFiLGl0YWxpYzowYn0sQ3VzdG9tTmFtZVZpc2libGU6MWIsUGVyc2lzdGVuY2VSZXF1aXJlZDoxYixDYW5QaWNrVXBMb290OjBiLEhlYWx0aDozMDAuMGYsYXR0cmlidXRlczpbe2lkOiJtaW5lY3JhZnQ6bWF4X2hlYWx0aCIsYmFzZTozMDBkfSx7aWQ6Im1pbmVjcmFmdDptb3ZlbWVudF9zcGVlZCIsYmFzZTowLjNkfSx7aWQ6Im1pbmVjcmFmdDphdHRhY2tfZGFtYWdlIixiYXNlOjE0LjBkfSx7aWQ6Im1pbmVjcmFmdDprbm9ja2JhY2tfcmVzaXN0YW5jZSIsYmFzZTowLjZkfSx7aWQ6Im1pbmVjcmFmdDpmb2xsb3dfcmFuZ2UiLGJhc2U6NDAuMGR9XSxlcXVpcG1lbnQ6e21haW5oYW5kOntpZDoibWluZWNyYWZ0Om5ldGhlcml0ZV9zd29yZCIsY291bnQ6MSxjb21wb25lbnRzOnsibWluZWNyYWZ0OmN1c3RvbV9uYW1lIjp7dGV4dDoiS2nhur9tIEjDqW8gVMOgbiIsY29sb3I6ImRhcmtfcmVkIixib2xkOjBiLGl0YWxpYzowYn0sIm1pbmVjcmFmdDplbmNoYW50bWVudHMiOnsibWluZWNyYWZ0OnNoYXJwbmVzcyI6NSwibWluZWNyYWZ0OmZpcmVfYXNwZWN0IjoyLCJtaW5lY3JhZnQ6dW5icmVha2luZyI6M30sIm1pbmVjcmFmdDp1bmJyZWFrYWJsZSI6e319fSxvZmZoYW5kOntpZDoibWluZWNyYWZ0OnNoaWVsZCIsY291bnQ6MSxjb21wb25lbnRzOnsibWluZWNyYWZ0OmVuY2hhbnRtZW50cyI6eyJtaW5lY3JhZnQ6dW5icmVha2luZyI6M30sIm1pbmVjcmFmdDp1bmJyZWFrYWJsZSI6e319fSxoZWFkOntpZDoibWluZWNyYWZ0Om5ldGhlcml0ZV9oZWxtZXQiLGNvdW50OjEsY29tcG9uZW50czp7Im1pbmVjcmFmdDplbmNoYW50bWVudHMiOnsibWluZWNyYWZ0OnByb3RlY3Rpb24iOjQsIm1pbmVjcmFmdDp1bmJyZWFraW5nIjozLCJtaW5lY3JhZnQ6dGhvcm5zIjozfSwibWluZWNyYWZ0OnVuYnJlYWthYmxlIjp7fX19LGNoZXN0OntpZDoibWluZWNyYWZ0Om5ldGhlcml0ZV9jaGVzdHBsYXRlIixjb3VudDoxLGNvbXBvbmVudHM6eyJtaW5lY3JhZnQ6ZW5jaGFudG1lbnRzIjp7Im1pbmVjcmFmdDpwcm90ZWN0aW9uIjo0LCJtaW5lY3JhZnQ6dW5icmVha2luZyI6MywibWluZWNyYWZ0OnRob3JucyI6M30sIm1pbmVjcmFmdDp1bmJyZWFrYWJsZSI6e319fSxsZWdzOntpZDoibWluZWNyYWZ0Om5ldGhlcml0ZV9sZWdnaW5ncyIsY291bnQ6MSxjb21wb25lbnRzOnsibWluZWNyYWZ0OmVuY2hhbnRtZW50cyI6eyJtaW5lY3JhZnQ6cHJvdGVjdGlvbiI6NCwibWluZWNyYWZ0OnVuYnJlYWtpbmciOjMsIm1pbmVjcmFmdDp0aG9ybnMiOjN9LCJtaW5lY3JhZnQ6dW5icmVha2FibGUiOnt9fX0sZmVldDp7aWQ6Im1pbmVjcmFmdDpuZXRoZXJpdGVfYm9vdHMiLGNvdW50OjEsY29tcG9uZW50czp7Im1pbmVjcmFmdDplbmNoYW50bWVudHMiOnsibWluZWNyYWZ0OnByb3RlY3Rpb24iOjQsIm1pbmVjcmFmdDp1bmJyZWFraW5nIjozLCJtaW5lY3JhZnQ6dGhvcm5zIjozfSwibWluZWNyYWZ0OnVuYnJlYWthYmxlIjp7fX19fSxkcm9wX2NoYW5jZXM6e21haW5oYW5kOjEuMGYsb2ZmaGFuZDowLjVmLGhlYWQ6MC4yNWYsY2hlc3Q6MC4yNWYsbGVnczowLjI1ZixmZWV0OjAuMjVmfSxhY3RpdmVfZWZmZWN0czpbe2lkOiJtaW5lY3JhZnQ6ZmlyZV9yZXNpc3RhbmNlIixhbXBsaWZpZXI6MGIsZHVyYXRpb246LTEsc2hvd19wYXJ0aWNsZXM6MGJ9LHtpZDoibWluZWNyYWZ0OnJlc2lzdGFuY2UiLGFtcGxpZmllcjowYixkdXJhdGlvbjotMSxzaG93X3BhcnRpY2xlczowYn1dfQ==
+    name: '&4&lHiệp Sĩ Héo Tàn'
+    exp: 4000
+    spawn-message:
+    - '&8&m------------------------------------------'
+    - '&c&l⚠ BOSS XUẤT HIỆN ⚠'
+    - '{boss} &7trỗi dậy từ pháo đài Nether! &8(Độ nguy hiểm: ★★★★)'
+    - '&7Triệu hồi bởi &e{player} &7tại &f{world} &7(&f{x}, {y}, {z}&7)'
+    - '&8&m------------------------------------------'
+    drops:
+    - item: NETHERITE_SCRAP
+      amount: 4-8
+      chance: 100.0
+    - item: DIAMOND_BLOCK
+      amount: 2-5
+      chance: 100.0
+    - item: WITHER_ROSE
+      amount: 2-4
+      chance: 100.0
+    - item: EXPERIENCE_BOTTLE
+      amount: 32-64
+      chance: 100.0
+    - item: ECHO_SHARD
+      amount: 1-3
+      chance: 100.0
+      name: '&4Linh Hồn Héo Tàn'
+      lore:
+      - '&7Mảnh linh hồn của Hiệp Sĩ Héo Tàn'
+      - '&8Vật phẩm rất hiếm'
+    - item: NETHERITE_INGOT
+      amount: 2-4
+      chance: 50.0
+    - item: ENCHANTED_GOLDEN_APPLE
+      amount: 2-4
+      chance: 50.0
+    - item: WITHER_SKELETON_SKULL
+      amount: 1-2
+      chance: 40.0
+    - item: NETHERITE_UPGRADE_SMITHING_TEMPLATE
+      amount: 1-2
+      chance: 35.0
+    - item: TOTEM_OF_UNDYING
+      amount: 1-2
+      chance: 30.0
+    - item: ENCHANTED_BOOK
+      amount: '1'
+      chance: 22.0
+      enchants:
+        mending: 1
+    - item: ENCHANTED_BOOK
+      amount: '1'
+      chance: 18.0
+      enchants:
+        sharpness: 5
+    - item: ENCHANTED_BOOK
+      amount: '1'
+      chance: 15.0
+      enchants:
+        looting: 3
+    - item: NETHER_STAR
+      amount: '1'
+      chance: 12.0
+  zombie_warlord:
+    nbt: e2lkOiJtaW5lY3JhZnQ6em9tYmllIixDdXN0b21OYW1lOnt0ZXh0OiJDaGnhur9uIFRo4bqnbiBYw6FjIFPhu5FuZyIsY29sb3I6ImRhcmtfZ3JlZW4iLGJvbGQ6MWIsaXRhbGljOjBifSxDdXN0b21OYW1lVmlzaWJsZToxYixQZXJzaXN0ZW5jZVJlcXVpcmVkOjFiLENhblBpY2tVcExvb3Q6MGIsSGVhbHRoOjUwMC4wZixhdHRyaWJ1dGVzOlt7aWQ6Im1pbmVjcmFmdDptYXhfaGVhbHRoIixiYXNlOjUwMGR9LHtpZDoibWluZWNyYWZ0Om1vdmVtZW50X3NwZWVkIixiYXNlOjAuMmR9LHtpZDoibWluZWNyYWZ0OmF0dGFja19kYW1hZ2UiLGJhc2U6MTguMGR9LHtpZDoibWluZWNyYWZ0Omtub2NrYmFja19yZXNpc3RhbmNlIixiYXNlOjEuMGR9LHtpZDoibWluZWNyYWZ0OnNjYWxlIixiYXNlOjIuMGR9LHtpZDoibWluZWNyYWZ0OmZvbGxvd19yYW5nZSIsYmFzZTo0MC4wZH1dLGVxdWlwbWVudDp7bWFpbmhhbmQ6e2lkOiJtaW5lY3JhZnQ6bmV0aGVyaXRlX2F4ZSIsY291bnQ6MSxjb21wb25lbnRzOnsibWluZWNyYWZ0OmN1c3RvbV9uYW1lIjp7dGV4dDoiUsOsdSBDaGnhur9uIFRo4bqnbiIsY29sb3I6ImRhcmtfZ3JlZW4iLGJvbGQ6MGIsaXRhbGljOjBifSwibWluZWNyYWZ0OmVuY2hhbnRtZW50cyI6eyJtaW5lY3JhZnQ6c2hhcnBuZXNzIjo2LCJtaW5lY3JhZnQ6dW5icmVha2luZyI6M30sIm1pbmVjcmFmdDp1bmJyZWFrYWJsZSI6e319fSxoZWFkOntpZDoibWluZWNyYWZ0OmRpYW1vbmRfaGVsbWV0Iixjb3VudDoxLGNvbXBvbmVudHM6eyJtaW5lY3JhZnQ6ZW5jaGFudG1lbnRzIjp7Im1pbmVjcmFmdDpwcm90ZWN0aW9uIjo0LCJtaW5lY3JhZnQ6dW5icmVha2luZyI6M30sIm1pbmVjcmFmdDp1bmJyZWFrYWJsZSI6e319fSxjaGVzdDp7aWQ6Im1pbmVjcmFmdDpkaWFtb25kX2NoZXN0cGxhdGUiLGNvdW50OjEsY29tcG9uZW50czp7Im1pbmVjcmFmdDplbmNoYW50bWVudHMiOnsibWluZWNyYWZ0OnByb3RlY3Rpb24iOjQsIm1pbmVjcmFmdDp1bmJyZWFraW5nIjozfSwibWluZWNyYWZ0OnVuYnJlYWthYmxlIjp7fX19LGxlZ3M6e2lkOiJtaW5lY3JhZnQ6ZGlhbW9uZF9sZWdnaW5ncyIsY291bnQ6MSxjb21wb25lbnRzOnsibWluZWNyYWZ0OmVuY2hhbnRtZW50cyI6eyJtaW5lY3JhZnQ6cHJvdGVjdGlvbiI6NCwibWluZWNyYWZ0OnVuYnJlYWtpbmciOjN9LCJtaW5lY3JhZnQ6dW5icmVha2FibGUiOnt9fX0sZmVldDp7aWQ6Im1pbmVjcmFmdDpkaWFtb25kX2Jvb3RzIixjb3VudDoxLGNvbXBvbmVudHM6eyJtaW5lY3JhZnQ6ZW5jaGFudG1lbnRzIjp7Im1pbmVjcmFmdDpwcm90ZWN0aW9uIjo0LCJtaW5lY3JhZnQ6dW5icmVha2luZyI6M30sIm1pbmVjcmFmdDp1bmJyZWFrYWJsZSI6e319fX0sZHJvcF9jaGFuY2VzOnttYWluaGFuZDoxLjBmLGhlYWQ6MC4yNWYsY2hlc3Q6MC4yNWYsbGVnczowLjI1ZixmZWV0OjAuMjVmfSxhY3RpdmVfZWZmZWN0czpbe2lkOiJtaW5lY3JhZnQ6ZmlyZV9yZXNpc3RhbmNlIixhbXBsaWZpZXI6MGIsZHVyYXRpb246LTEsc2hvd19wYXJ0aWNsZXM6MGJ9XSxJc0JhYnk6MGIsQ2FuQnJlYWtEb29yczoxYn0=
+    name: '&2&lChiến Thần Xác Sống'
+    exp: 8000
+    spawn-message:
+    - '&8&m------------------------------------------'
+    - '&c&l⚠ BOSS XUẤT HIỆN ⚠'
+    - '{boss} &7đạp đất đứng dậy, cả thế giới rung chuyển! &8(Độ nguy hiểm: ★★★★★)'
+    - '&7Triệu hồi bởi &e{player} &7tại &f{world} &7(&f{x}, {y}, {z}&7)'
+    - '&8&m------------------------------------------'
+    drops:
+    - item: NETHERITE_INGOT
+      amount: 4-8
+      chance: 100.0
+    - item: NETHERITE_SCRAP
+      amount: 8-16
+      chance: 100.0
+    - item: DIAMOND_BLOCK
+      amount: 4-8
+      chance: 100.0
+    - item: EXPERIENCE_BOTTLE
+      amount: 48-64
+      chance: 100.0
+    - item: HEART_OF_THE_SEA
+      amount: '1'
+      chance: 100.0
+      name: '&2&lTrái Tim Chiến Thần'
+      lore:
+      - '&7Vẫn còn đập trong lồng ngực Chiến Thần'
+      - '&8Vật phẩm huyền thoại'
+    - item: NETHERITE_BLOCK
+      amount: 1-2
+      chance: 60.0
+    - item: NETHER_STAR
+      amount: 1-2
+      chance: 55.0
+    - item: ENCHANTED_GOLDEN_APPLE
+      amount: 3-6
+      chance: 80.0
+    - item: TOTEM_OF_UNDYING
+      amount: 2-3
+      chance: 60.0
+    - item: NETHERITE_UPGRADE_SMITHING_TEMPLATE
+      amount: 2-3
+      chance: 60.0
+    - item: ENCHANTED_BOOK
+      amount: '1'
+      chance: 40.0
+      enchants:
+        mending: 1
+    - item: ENCHANTED_BOOK
+      amount: '1'
+      chance: 30.0
+      enchants:
+        protection: 4
+    - item: ENCHANTED_BOOK
+      amount: '1'
+      chance: 30.0
+      enchants:
+        sharpness: 5
+    - item: ENCHANTED_BOOK
+      amount: '1'
+      chance: 30.0
+      enchants:
+        efficiency: 5
+    - item: ENCHANTED_BOOK
+      amount: '1'
+      chance: 25.0
+      enchants:
+        fortune: 3
+    - item: BEACON
+      amount: '1'
+      chance: 15.0
+    - item: ELYTRA
+      amount: '1'
+      chance: 6.0
+  phantom_archer:
+    nbt: e2lkOiJtaW5lY3JhZnQ6c2tlbGV0b24iLEN1c3RvbU5hbWU6e3RleHQ6IljhuqEgVGjhu6cgQsOzbmcgTWEiLGNvbG9yOiJkYXJrX3B1cnBsZSIsYm9sZDoxYixpdGFsaWM6MGJ9LEN1c3RvbU5hbWVWaXNpYmxlOjFiLFBlcnNpc3RlbmNlUmVxdWlyZWQ6MWIsQ2FuUGlja1VwTG9vdDowYixIZWFsdGg6MTUwLjBmLGF0dHJpYnV0ZXM6W3tpZDoibWluZWNyYWZ0Om1heF9oZWFsdGgiLGJhc2U6MTUwZH0se2lkOiJtaW5lY3JhZnQ6bW92ZW1lbnRfc3BlZWQiLGJhc2U6MC4zMmR9LHtpZDoibWluZWNyYWZ0OmZvbGxvd19yYW5nZSIsYmFzZTo0OC4wZH1dLGVxdWlwbWVudDp7bWFpbmhhbmQ6e2lkOiJtaW5lY3JhZnQ6Ym93Iixjb3VudDoxLGNvbXBvbmVudHM6eyJtaW5lY3JhZnQ6Y3VzdG9tX25hbWUiOnt0ZXh0OiJDdW5nIELDs25nIE1hIixjb2xvcjoiZGFya19wdXJwbGUiLGJvbGQ6MGIsaXRhbGljOjBifSwibWluZWNyYWZ0OmVuY2hhbnRtZW50cyI6eyJtaW5lY3JhZnQ6cG93ZXIiOjUsIm1pbmVjcmFmdDpwdW5jaCI6MiwibWluZWNyYWZ0OmZsYW1lIjoxLCJtaW5lY3JhZnQ6dW5icmVha2luZyI6M30sIm1pbmVjcmFmdDp1bmJyZWFrYWJsZSI6e319fSxoZWFkOntpZDoibWluZWNyYWZ0OmxlYXRoZXJfaGVsbWV0Iixjb3VudDoxLGNvbXBvbmVudHM6eyJtaW5lY3JhZnQ6ZW5jaGFudG1lbnRzIjp7Im1pbmVjcmFmdDpwcm90ZWN0aW9uIjo0LCJtaW5lY3JhZnQ6dW5icmVha2luZyI6M30sIm1pbmVjcmFmdDpkeWVkX2NvbG9yIjo4Mzg4NzM2LCJtaW5lY3JhZnQ6dW5icmVha2FibGUiOnt9fX0sY2hlc3Q6e2lkOiJtaW5lY3JhZnQ6bGVhdGhlcl9jaGVzdHBsYXRlIixjb3VudDoxLGNvbXBvbmVudHM6eyJtaW5lY3JhZnQ6ZW5jaGFudG1lbnRzIjp7Im1pbmVjcmFmdDpwcm90ZWN0aW9uIjo0LCJtaW5lY3JhZnQ6dW5icmVha2luZyI6M30sIm1pbmVjcmFmdDpkeWVkX2NvbG9yIjo4Mzg4NzM2LCJtaW5lY3JhZnQ6dW5icmVha2FibGUiOnt9fX0sbGVnczp7aWQ6Im1pbmVjcmFmdDpsZWF0aGVyX2xlZ2dpbmdzIixjb3VudDoxLGNvbXBvbmVudHM6eyJtaW5lY3JhZnQ6ZW5jaGFudG1lbnRzIjp7Im1pbmVjcmFmdDpwcm90ZWN0aW9uIjo0LCJtaW5lY3JhZnQ6dW5icmVha2luZyI6M30sIm1pbmVjcmFmdDpkeWVkX2NvbG9yIjo4Mzg4NzM2LCJtaW5lY3JhZnQ6dW5icmVha2FibGUiOnt9fX0sZmVldDp7aWQ6Im1pbmVjcmFmdDpsZWF0aGVyX2Jvb3RzIixjb3VudDoxLGNvbXBvbmVudHM6eyJtaW5lY3JhZnQ6ZW5jaGFudG1lbnRzIjp7Im1pbmVjcmFmdDpwcm90ZWN0aW9uIjo0LCJtaW5lY3JhZnQ6dW5icmVha2luZyI6M30sIm1pbmVjcmFmdDpkeWVkX2NvbG9yIjo4Mzg4NzM2LCJtaW5lY3JhZnQ6dW5icmVha2FibGUiOnt9fX19LGRyb3BfY2hhbmNlczp7bWFpbmhhbmQ6MS4wZixoZWFkOjAuMjVmLGNoZXN0OjAuMjVmLGxlZ3M6MC4yNWYsZmVldDowLjI1Zn0sYWN0aXZlX2VmZmVjdHM6W3tpZDoibWluZWNyYWZ0OmludmlzaWJpbGl0eSIsYW1wbGlmaWVyOjBiLGR1cmF0aW9uOi0xLHNob3dfcGFydGljbGVzOjBifSx7aWQ6Im1pbmVjcmFmdDpmaXJlX3Jlc2lzdGFuY2UiLGFtcGxpZmllcjowYixkdXJhdGlvbjotMSxzaG93X3BhcnRpY2xlczowYn1dfQ==
+    name: '&5&lXạ Thủ Bóng Ma'
+    exp: 1000
+    spawn-message:
+    - '&8&m------------------------------------------'
+    - '&c&l⚠ BOSS XUẤT HIỆN ⚠'
+    - '{boss} &7lướt ra từ bóng tối... &8(Độ nguy hiểm: ★★)'
+    - '&7Triệu hồi bởi &e{player} &7tại &f{world} &7(&f{x}, {y}, {z}&7)'
+    - '&8&m------------------------------------------'
+    drops:
+    - item: ARROW
+      amount: 32-64
+      chance: 100.0
+    - item: SPECTRAL_ARROW
+      amount: 16-32
+      chance: 100.0
+    - item: EMERALD
+      amount: 6-14
+      chance: 100.0
+    - item: DIAMOND
+      amount: 2-5
+      chance: 90.0
+    - item: PHANTOM_MEMBRANE
+      amount: 4-8
+      chance: 100.0
+    - item: AMETHYST_SHARD
+      amount: 4-8
+      chance: 100.0
+      name: '&5Mảnh Vỡ Bóng Ma'
+      lore:
+      - '&7Tàn tích của Xạ Thủ Bóng Ma'
+      - '&8Vật phẩm hiếm'
+    - item: ENDER_PEARL
+      amount: 2-5
+      chance: 60.0
+    - item: GOLDEN_APPLE
+      amount: 2-4
+      chance: 50.0
+    - item: NAME_TAG
+      amount: '1'
+      chance: 25.0
+    - item: DIAMOND_BLOCK
+      amount: '1'
+      chance: 12.0
+    - item: ENCHANTED_BOOK
+      amount: '1'
+      chance: 15.0
+      enchants:
+        unbreaking: 3
+    - item: ENCHANTED_BOOK
+      amount: '1'
+      chance: 8.0
+      enchants:
+        power: 5
+    - item: ENCHANTED_GOLDEN_APPLE
+      amount: '1'
+      chance: 5.0
+  piglin_tyrant:
+    nbt: e2lkOiJtaW5lY3JhZnQ6cGlnbGluX2JydXRlIixDdXN0b21OYW1lOnt0ZXh0OiJC4bqhbyBDaMO6YSBQaWdsaW4iLGNvbG9yOiJnb2xkIixib2xkOjFiLGl0YWxpYzowYn0sQ3VzdG9tTmFtZVZpc2libGU6MWIsUGVyc2lzdGVuY2VSZXF1aXJlZDoxYixDYW5QaWNrVXBMb290OjBiLEhlYWx0aDo0MDAuMGYsYXR0cmlidXRlczpbe2lkOiJtaW5lY3JhZnQ6bWF4X2hlYWx0aCIsYmFzZTo0MDBkfSx7aWQ6Im1pbmVjcmFmdDptb3ZlbWVudF9zcGVlZCIsYmFzZTowLjM4ZH0se2lkOiJtaW5lY3JhZnQ6YXR0YWNrX2RhbWFnZSIsYmFzZToxNi4wZH0se2lkOiJtaW5lY3JhZnQ6a25vY2tiYWNrX3Jlc2lzdGFuY2UiLGJhc2U6MC44ZH0se2lkOiJtaW5lY3JhZnQ6Zm9sbG93X3JhbmdlIixiYXNlOjQwLjBkfV0sZXF1aXBtZW50OnttYWluaGFuZDp7aWQ6Im1pbmVjcmFmdDpnb2xkZW5fYXhlIixjb3VudDoxLGNvbXBvbmVudHM6eyJtaW5lY3JhZnQ6Y3VzdG9tX25hbWUiOnt0ZXh0OiJSw6x1IELhuqFvIENow7phIixjb2xvcjoiZ29sZCIsYm9sZDowYixpdGFsaWM6MGJ9LCJtaW5lY3JhZnQ6ZW5jaGFudG1lbnRzIjp7Im1pbmVjcmFmdDpzaGFycG5lc3MiOjUsIm1pbmVjcmFmdDp1bmJyZWFraW5nIjozfSwibWluZWNyYWZ0OnVuYnJlYWthYmxlIjp7fX19LGhlYWQ6e2lkOiJtaW5lY3JhZnQ6Z29sZGVuX2hlbG1ldCIsY291bnQ6MSxjb21wb25lbnRzOnsibWluZWNyYWZ0OmVuY2hhbnRtZW50cyI6eyJtaW5lY3JhZnQ6cHJvdGVjdGlvbiI6NCwibWluZWNyYWZ0OnVuYnJlYWtpbmciOjN9LCJtaW5lY3JhZnQ6dW5icmVha2FibGUiOnt9fX0sY2hlc3Q6e2lkOiJtaW5lY3JhZnQ6Z29sZGVuX2NoZXN0cGxhdGUiLGNvdW50OjEsY29tcG9uZW50czp7Im1pbmVjcmFmdDplbmNoYW50bWVudHMiOnsibWluZWNyYWZ0OnByb3RlY3Rpb24iOjQsIm1pbmVjcmFmdDp1bmJyZWFraW5nIjozfSwibWluZWNyYWZ0OnVuYnJlYWthYmxlIjp7fX19LGxlZ3M6e2lkOiJtaW5lY3JhZnQ6Z29sZGVuX2xlZ2dpbmdzIixjb3VudDoxLGNvbXBvbmVudHM6eyJtaW5lY3JhZnQ6ZW5jaGFudG1lbnRzIjp7Im1pbmVjcmFmdDpwcm90ZWN0aW9uIjo0LCJtaW5lY3JhZnQ6dW5icmVha2luZyI6M30sIm1pbmVjcmFmdDp1bmJyZWFrYWJsZSI6e319fSxmZWV0OntpZDoibWluZWNyYWZ0OmdvbGRlbl9ib290cyIsY291bnQ6MSxjb21wb25lbnRzOnsibWluZWNyYWZ0OmVuY2hhbnRtZW50cyI6eyJtaW5lY3JhZnQ6cHJvdGVjdGlvbiI6NCwibWluZWNyYWZ0OnVuYnJlYWtpbmciOjN9LCJtaW5lY3JhZnQ6dW5icmVha2FibGUiOnt9fX19LGRyb3BfY2hhbmNlczp7bWFpbmhhbmQ6MS4wZixoZWFkOjAuMjVmLGNoZXN0OjAuMjVmLGxlZ3M6MC4yNWYsZmVldDowLjI1Zn0sYWN0aXZlX2VmZmVjdHM6W3tpZDoibWluZWNyYWZ0OmZpcmVfcmVzaXN0YW5jZSIsYW1wbGlmaWVyOjBiLGR1cmF0aW9uOi0xLHNob3dfcGFydGljbGVzOjBifV0sSXNJbW11bmVUb1pvbWJpZmljYXRpb246MWJ9
+    name: '&6&lBạo Chúa Piglin'
+    exp: 2500
+    spawn-message:
+    - '&8&m------------------------------------------'
+    - '&c&l⚠ BOSS XUẤT HIỆN ⚠'
+    - '{boss} &7gầm vang đòi vàng của bạn! &8(Độ nguy hiểm: ★★★)'
+    - '&7Triệu hồi bởi &e{player} &7tại &f{world} &7(&f{x}, {y}, {z}&7)'
+    - '&8&m------------------------------------------'
+    drops:
+    - item: GOLD_INGOT
+      amount: 24-48
+      chance: 100.0
+    - item: GOLD_BLOCK
+      amount: 4-8
+      chance: 80.0
+    - item: GILDED_BLACKSTONE
+      amount: 16-32
+      chance: 100.0
+    - item: DIAMOND
+      amount: 4-8
+      chance: 100.0
+    - item: EXPERIENCE_BOTTLE
+      amount: 16-32
+      chance: 100.0
+    - item: ANCIENT_DEBRIS
+      amount: 2-4
+      chance: 70.0
+    - item: NETHERITE_SCRAP
+      amount: 2-4
+      chance: 60.0
+    - item: CRYING_OBSIDIAN
+      amount: 8-16
+      chance: 60.0
+    - item: NETHERITE_INGOT
+      amount: 1-2
+      chance: 20.0
+    - item: ENCHANTED_GOLDEN_APPLE
+      amount: 1-2
+      chance: 25.0
+    - item: TOTEM_OF_UNDYING
+      amount: '1'
+      chance: 12.0
+    - item: NETHERITE_UPGRADE_SMITHING_TEMPLATE
+      amount: '1'
+      chance: 10.0
+    - item: ENCHANTED_BOOK
+      amount: '1'
+      chance: 12.0
+      enchants:
+        mending: 1
+    - item: GOLDEN_HELMET
+      amount: '1'
+      chance: 7.0
+      name: '&6&lVương Miện Bạo Chúa'
+      lore:
+      - '&7Chiếc mũ của kẻ cai trị Nether'
+      - '&8Cực hiếm'
+      enchants:
+        protection: 5
+        unbreaking: 3
+        thorns: 3

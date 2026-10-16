@@ -1,0 +1,30 @@
+name: SMBoss
+version: 1.0.0
+main: vn.smboss.SMBossPlugin
+api-version: '1.21'
+description: Custom boss/mob tu NBT (Base64)
+commands:
+  smbreload:
+    description: Tai lai boss-data.yml
+    usage: /smbreload
+    permission: smboss.admin
+  smboss:
+    description: Trieu hoi boss
+    usage: /smboss <id>
+    permission: smboss.admin
+  cboss:
+    description: Tao/cap nhat boss tu Base64 NBT
+    usage: /cboss <id> <base64>
+    permission: smboss.admin
+  delboss:
+    description: Xoa boss
+    usage: /delboss <id>
+    permission: smboss.admin
+  cdnbt:
+    description: Chuyen NBT mob sang Base64
+    usage: /cdnbt <nbt>
+    permission: smboss.admin
+permissions:
+  smboss.admin:
+    description: Toan quyen SMBoss
+    default: op
